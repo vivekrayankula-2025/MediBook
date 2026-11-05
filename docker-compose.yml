@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: medibook-mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: medibook
+    volumes:
+      - mongo-data:/data/db
+
+  server:
+    build:
+      context: ./server
+      dockerfile: ../Dockerfile.server
+    container_name: medibook-server
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - NODE_ENV=production
+      # Uses MONGODB_URI from your shell/.env (Atlas); falls back to the bundled mongodb container
+      - MONGODB_URI=${MONGODB_URI:-mongodb://mongodb:27017/medibook}
+      - JWT_SECRET=medibook_super_secret_jwt_key_2026_final_year_project_secure
+      - CLIENT_URL=http://localhost:5173
+      - SMS_PROVIDER=mock
+    depends_on:
+      - mongodb
+
+  client:
+    build:
+      context: ./client
+      dockerfile: ../Dockerfile.client
+    container_name: medibook-client
+    restart: always
+    ports:
+      - "5173:80"
+    depends_on:
+      - server
+
+volumes:
+  mongo-data:

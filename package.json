@@ -1,0 +1,31 @@
+{
+  "name": "medibook-workspace",
+  "version": "1.0.0",
+  "description": "MediBook – Smart Hospital Appointment Booking and SMS Notification System",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently -n \"SERVER,CLIENT\" -c \"cyan,magenta\" \"npm run server\" \"npm run client\"",
+    "seed": "npm run seed --prefix server",
+    "test": "npm test --prefix server",
+    "build": "npm run build --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "mern",
+    "hospital-appointment",
+    "sms-notification",
+    "twilio",
+    "msg91",
+    "react",
+    "node",
+    "express",
+    "mongodb"
+  ],
+  "author": "MediBook Development Team",
+  "license": "MIT"
+}
