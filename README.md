@@ -4,7 +4,7 @@
 [![Node.js](https://img.shields.io/badge/Node.js-v20+-green.svg)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-MediBook is an advanced, production-grade final-year MERN Stack Hospital Management, Outpatient Scheduling, and Real-Time SMS Notification Gateway. Designed to eliminate clinic congestion, double-booking race conditions, and missed appointments, MediBook empowers patients, specialist doctors, and hospital administrators with specialized role-based portals.
+MediBook is an advanced, production-grade MERN Stack Hospital Management, Outpatient Scheduling, and Real-Time SMS Notification Gateway. Designed to eliminate clinic congestion, double-booking race conditions, and missed appointments, MediBook empowers patients, specialist doctors, and hospital administrators with specialized role-based portals.
 
 ---
 
